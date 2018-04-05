@@ -9,7 +9,7 @@
 import UIKit
 
 class MiCelda1: UITableViewCell {
- @IBOutlet var textLabel:UITableView?
+ @IBOutlet var lblNombre:UILabel?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

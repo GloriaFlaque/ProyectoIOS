@@ -9,5 +9,7 @@
 import UIKit
 
 class CVCGatos: UICollectionViewCell {
-    
+    @IBOutlet var lblNombre: UILabel?
+    @IBOutlet var imggato: UIImageView?
+
 }

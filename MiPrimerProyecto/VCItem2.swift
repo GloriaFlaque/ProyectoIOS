@@ -10,6 +10,7 @@ import UIKit
 
 class VCItem2: UIViewController {
 
+    @IBOutlet var tabla1:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
 

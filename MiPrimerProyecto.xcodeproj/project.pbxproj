@@ -16,7 +16,8 @@
 		57FDBE292073ACDE00989763 /* VCRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE282073ACDE00989763 /* VCRegister.swift */; };
 		57FDBE2B2076288B00989763 /* VCItem1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE2A2076288B00989763 /* VCItem1.swift */; };
 		57FDBE2F2076408100989763 /* MiCelda1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE2E2076408100989763 /* MiCelda1.swift */; };
-		57FDBE312076436900989763 /* VCItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE302076436900989763 /* VCItem2.swift */; };
+		57FDBE3320764CA800989763 /* VCItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE3220764CA800989763 /* VCItem2.swift */; };
+		57FDBE35207652CB00989763 /* CVCGatos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE34207652CB00989763 /* CVCGatos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		57FDBE282073ACDE00989763 /* VCRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCRegister.swift; sourceTree = "<group>"; };
 		57FDBE2A2076288B00989763 /* VCItem1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem1.swift; sourceTree = "<group>"; };
 		57FDBE2E2076408100989763 /* MiCelda1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCelda1.swift; sourceTree = "<group>"; };
-		57FDBE302076436900989763 /* VCItem2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem2.swift; sourceTree = "<group>"; };
+		57FDBE3220764CA800989763 /* VCItem2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem2.swift; sourceTree = "<group>"; };
+		57FDBE34207652CB00989763 /* CVCGatos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCGatos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +76,8 @@
 				57FDBE282073ACDE00989763 /* VCRegister.swift */,
 				57FDBE2A2076288B00989763 /* VCItem1.swift */,
 				57FDBE2E2076408100989763 /* MiCelda1.swift */,
-				57FDBE302076436900989763 /* VCItem2.swift */,
+				57FDBE3220764CA800989763 /* VCItem2.swift */,
+				57FDBE34207652CB00989763 /* CVCGatos.swift */,
 			);
 			path = MiPrimerProyecto;
 			sourceTree = "<group>";
@@ -154,7 +157,8 @@
 				57FDBE1C2063B7F300989763 /* MiPrimerProyecto.xcdatamodeld in Sources */,
 				57FDBE292073ACDE00989763 /* VCRegister.swift in Sources */,
 				57FDBE2B2076288B00989763 /* VCItem1.swift in Sources */,
-				57FDBE312076436900989763 /* VCItem2.swift in Sources */,
+				57FDBE35207652CB00989763 /* CVCGatos.swift in Sources */,
+				57FDBE3320764CA800989763 /* VCItem2.swift in Sources */,
 				57FDBE162063B7F300989763 /* ViewController.swift in Sources */,
 				57FDBE2F2076408100989763 /* MiCelda1.swift in Sources */,
 				57FDBE142063B7F300989763 /* AppDelegate.swift in Sources */,
