@@ -13,6 +13,10 @@
 		57FDBE1C2063B7F300989763 /* MiPrimerProyecto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE1A2063B7F300989763 /* MiPrimerProyecto.xcdatamodeld */; };
 		57FDBE1E2063B7F300989763 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57FDBE1D2063B7F300989763 /* Assets.xcassets */; };
 		57FDBE212063B7F300989763 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57FDBE1F2063B7F300989763 /* LaunchScreen.storyboard */; };
+		57FDBE292073ACDE00989763 /* VCRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE282073ACDE00989763 /* VCRegister.swift */; };
+		57FDBE2B2076288B00989763 /* VCItem1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE2A2076288B00989763 /* VCItem1.swift */; };
+		57FDBE2F2076408100989763 /* MiCelda1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE2E2076408100989763 /* MiCelda1.swift */; };
+		57FDBE312076436900989763 /* VCItem2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE302076436900989763 /* VCItem2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		57FDBE1D2063B7F300989763 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57FDBE202063B7F300989763 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57FDBE222063B7F300989763 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57FDBE282073ACDE00989763 /* VCRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCRegister.swift; sourceTree = "<group>"; };
+		57FDBE2A2076288B00989763 /* VCItem1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem1.swift; sourceTree = "<group>"; };
+		57FDBE2E2076408100989763 /* MiCelda1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiCelda1.swift; sourceTree = "<group>"; };
+		57FDBE302076436900989763 /* VCItem2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCItem2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				57FDBE1F2063B7F300989763 /* LaunchScreen.storyboard */,
 				57FDBE222063B7F300989763 /* Info.plist */,
 				57FDBE1A2063B7F300989763 /* MiPrimerProyecto.xcdatamodeld */,
+				57FDBE282073ACDE00989763 /* VCRegister.swift */,
+				57FDBE2A2076288B00989763 /* VCItem1.swift */,
+				57FDBE2E2076408100989763 /* MiCelda1.swift */,
+				57FDBE302076436900989763 /* VCItem2.swift */,
 			);
 			path = MiPrimerProyecto;
 			sourceTree = "<group>";
@@ -140,7 +152,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				57FDBE1C2063B7F300989763 /* MiPrimerProyecto.xcdatamodeld in Sources */,
+				57FDBE292073ACDE00989763 /* VCRegister.swift in Sources */,
+				57FDBE2B2076288B00989763 /* VCItem1.swift in Sources */,
+				57FDBE312076436900989763 /* VCItem2.swift in Sources */,
 				57FDBE162063B7F300989763 /* ViewController.swift in Sources */,
+				57FDBE2F2076408100989763 /* MiCelda1.swift in Sources */,
 				57FDBE142063B7F300989763 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
