@@ -8,7 +8,34 @@
 
 import UIKit
 
-class VCItem2: UIViewController {
+class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:MiCelda1 = tableView.dequeueReusableCell(withIdentifier: "miTabla1") as! MiCelda1
+        if indexPath.row == 0 {
+            cell.lblNombre?.text="Gloria"
+            cell.imgFoto?.image=#imageLiteral(resourceName: "IMG_9822")
+        }
+        else if indexPath.row == 1 {
+            cell.lblNombre?.text="Laura"
+            cell.imgFoto?.image=#imageLiteral(resourceName: "IMG_9901")
+            
+        }
+        else if indexPath.row == 2 {
+            cell.lblNombre?.text="Jose"
+            cell.imgFoto?.image=#imageLiteral(resourceName: "IMG_9042")
+        }
+        else if indexPath.row == 3 {
+            cell.lblNombre?.text="María"
+            cell.imgFoto?.image=#imageLiteral(resourceName: "IMG_9110")
+            
+        }
+        return cell
+    }
+    
 
     @IBOutlet var tabla1:UITableView?
     override func viewDidLoad() {
@@ -21,6 +48,7 @@ class VCItem2: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

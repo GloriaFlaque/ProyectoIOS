@@ -26,10 +26,14 @@ class ViewController: UIViewController {
     }
     @IBAction func eventoClickLogin()
     {
+        
         txtVConsola?.text=String(format:"Hola Mundo USUARIO: %@ PASSWORD: %@", (txtUser?.text)!, (txtPass?.text)!)
         print("HEY QUE TAL!!!"+(txtUser?.text)!)
-        if txtUser?.text == "Yony"{
+        if txtUser?.text == "Gloria"{
             self.performSegue(withIdentifier: "dd", sender: self)
+        }
+        else{
+            
         }
     }
 

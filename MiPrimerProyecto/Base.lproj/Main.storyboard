@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8MQ-i4-4kb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="urG-yN-QBB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -85,11 +85,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOr-u9-wVr">
-                                <rect key="frame" x="297" y="617" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Registrar"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMf-aX-hXG">
                                 <rect key="frame" x="38" y="141" width="59" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -118,7 +113,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="eventoClickLogin" destination="gz8-yX-oA6" eventType="touchUpInside" id="CaP-Rq-hm7"/>
-                                    <segue destination="8MQ-i4-4kb" kind="show" identifier="dd" id="cFs-tA-rwY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -126,10 +120,12 @@
                         <viewLayoutGuide key="safeArea" id="OR8-f5-WZd"/>
                     </view>
                     <connections>
+                        <outlet property="btnLogin" destination="7H7-f3-bil" id="ZgU-94-Sxt"/>
                         <outlet property="lblPrueba" destination="6qJ-ih-Glt" id="KAg-Xj-XzQ"/>
                         <outlet property="txtPass" destination="s2a-8f-SFF" id="iqh-Xa-7Zc"/>
                         <outlet property="txtUser" destination="ftD-Hu-uGD" id="M8p-Nm-ywb"/>
                         <outlet property="txtVConsola" destination="Qaa-JB-lhR" id="s9C-rv-cB2"/>
+                        <segue destination="8MQ-i4-4kb" kind="show" identifier="dd" id="6yw-ID-i0X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOw-sL-n1I" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,27 +275,36 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDmicelda" rowHeight="141" id="poM-2R-vXe" customClass="MiCelda1" customModule="MiPrimerProyecto" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="141"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="miTabla1" id="sDz-Ak-5iW" customClass="MiCelda1" customModule="MiPrimerProyecto" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="poM-2R-vXe" id="jxs-Hn-3lA" customClass="MiCelda1" customModule="MiPrimerProyecto" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sDz-Ak-5iW" id="86G-Tj-kFs">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bio-nP-mhG">
-                                                    <rect key="frame" x="15" y="31" width="141" height="43"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S5q-eg-e0O">
+                                                    <rect key="frame" x="15" y="0.0" width="43" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQe-en-C6E">
+                                                    <rect key="frame" x="66" y="12" width="309" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <connections>
-                                                <outlet property="lblNombre" destination="bio-nP-mhG" id="pdc-7N-0mB"/>
-                                            </connections>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgFoto" destination="S5q-eg-e0O" id="m3x-Ae-UeS"/>
+                                            <outlet property="lblNombre" destination="KQe-en-C6E" id="SFh-2l-Qb8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ghe-qp-apT" id="ahD-QY-fMd"/>
+                                    <outlet property="delegate" destination="ghe-qp-apT" id="vEI-X9-AeI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -307,7 +312,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="W5p-VK-eS0"/>
                     <connections>
-                        <outlet property="view" destination="wcP-Wc-dHz" id="g5T-eS-2Jg"/>
+                        <outlet property="tabla1" destination="wcP-Wc-dHz" id="Iv7-rb-EGp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tHq-rR-AWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -402,7 +407,7 @@
         <image name="luck" width="2448" height="3264"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LXo-Xq-Ma1"/>
-        <segue reference="jHe-Vu-Vmu"/>
+        <segue reference="6yw-ID-i0X"/>
+        <segue reference="v5z-tU-7uw"/>
     </inferredMetricsTieBreakers>
 </document>
