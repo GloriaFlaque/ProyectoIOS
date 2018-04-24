@@ -7,14 +7,31 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        /*let cell:MiCelda1 =
+            tableView.dequeueReusableCell(withReuseIdentifier: "IDTable", for: indexPath) as! MiCelda1
+        cell.lblNombre?.text =
+            DataHolder.sharedInstance.arCoches[indexPath.row].sNombre
+        cell.mostrarImagen(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)*/
+        
+        
+        
+        
+        
+        
+        
+        
         let cell:MiCelda1 = tableView.dequeueReusableCell(withIdentifier: "miTabla1") as! MiCelda1
+       
         if indexPath.row == 0 {
             cell.lblNombre?.text="Gloria"
             cell.imgFoto?.image=#imageLiteral(resourceName: "IMG_9822")
@@ -40,17 +57,47 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tabla1:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
+        //print("************* ",DataHolder.sharedInstance.firestoreDB)
+       /* DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+                
+            }
+            else{
+                //print("]]]]]]]pppppppppppppppp")
+                DataHolder.sharedInstance.arCoches=[]
+                
+                for document in querySnapshot!.documents {
+                    print("WOWOWOWOWOOWOW")
+                    let coche:Coche = Coche()
+                    coche.sid=document.documentID
+                    coche.setMap(valores: document.data())
+                    DataHolder.sharedInstance.arCoches.append(coche)
+                    //self.arCoches.append(coche)
+                    print("\(document.documentID) => \(document.data())")
+                }
+                print("--------- >>>",DataHolder.sharedInstance.arCoches.count)
+                self.tabla1?.reloadData()
+            }}}
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func refreshUI() {
+        DispatchQueue.main.async {
+            self.tableView?.reloadData()
+        }
+    }
+    return cell
+}
 
+func refreshUI() {
+    DispatchQueue.main.async {
+        self.Collection1?.reloadData()
+    }
+}*/
     /*
     // MARK: - Navigation
 
@@ -60,5 +107,8 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // Pass the selected object to the new view controller.
     }
     */
+        
+        }
 
 }
+

@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VCRegister: UIViewController {
-    @IBOutlet var txtNombre:UITextField?
+    @IBOutlet var txtUser:UITextField?
     @IBOutlet var txtEmail:UITextField?
-    @IBOutlet var txtPassword:UITextField?
+    @IBOutlet var txtPass:UITextField?
     @IBOutlet var txtRepetirPassword:UITextField?
     @IBOutlet var btnAceptar:UIButton?
     @IBOutlet var btnCancelar:UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
 
         // Do any additional setup after loading the view.
     }
@@ -39,5 +41,28 @@ class VCRegister: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func clickRegistrar(){
+        DataHolder.sharedInstance.miPerfil.nombre = "Gloria"
+        DataHolder.sharedInstance.miPerfil.sApellidos = "Flaqué"
+        DataHolder.sharedInstance.miPerfil.iFecha = 1999
+        DataHolder.sharedInstance.miPerfil.altura = 23
+
+        
+        Auth.auth().createUser(withEmail: (txtEmail?.text)!, password:
+        (txtPass?.text)!){ (user, error) in
+            if user != nil{
+                print("TE REGISTRASTES")
+                //self.perform(shouldPerformSegue(withIdentifier: "", sender: self))
+               
+                DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData(DataHolder.sharedInstance.miPerfil.getMap());
+                self.performSegue(withIdentifier: "cc", sender: self)
+            }
+            else {
+                print(error!)
+            }
+        }
+        print("HOLA!")
+    }
 
 }
+

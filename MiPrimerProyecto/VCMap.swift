@@ -7,20 +7,112 @@
 //
 
 import UIKit
+import MapKit
+import FirebaseDatabase
 
-class VCMap: UIViewController {
-
+class VCMap: UIViewController, CLLocationManagerDelegate, LocationAdminDelegate {
+    @IBOutlet var miMapa: MKMapView?
+    
+    var pines:[String:MKAnnotation]? = [:]
+    var locationManager:CLLocationManager?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        miMapa?.showsUserLocation = true
+        
+        
+       /*DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (snapshot, err)
+            in
+            let arTemp=snapshot.value as? Array<AnyObject>
+            DataHolder.sharedInstance.arCoches=Array<Coche>()
+            
+            for co in arTemp! as [AnyObject] {
+                let cochei=Coche(valores: co as! [String:AnyObject])
+                DataHolder.sharedInstance.arCoches?.append(cochei)
+                var coordTemp:CLLocationCoordinate2D = CLLocationCoordinate2D()
+                coordTemp.latitude = cochei.dLat!
+                coordTemp.longitude = cochei.dLon!
+                agregarPin(coordenada: coordTemp, titulo: cochei.sNombre)
+            }
+            
+        }*/
+        
+        
+        //DataHolder.sharedInstance.locationAdmin?.delegate=self
+        
+       var coordTemp:CLLocationCoordinate2D = CLLocationCoordinate2D()
+        coordTemp.latitude = 40.4165
+        coordTemp.longitude = -4.702
+        agregarPin(coordenada: coordTemp, titulo: "PIN1")
+        
+        var coordTemp2:CLLocationCoordinate2D = CLLocationCoordinate2D()
+        coordTemp2.latitude = 47.4165
+        coordTemp2.longitude = -8.702
+        agregarPin(coordenada: coordTemp, titulo: "PIN2")
+        
+        
+        
+        self.agregarpin(titulo: "HOLA", latitude: 42, longitude: -3)
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.startUpdatingLocation()
+        miMapa?.showsUserLocation = true
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
+    func agregarPin(coordenada:CLLocationCoordinate2D, titulo varTitulo:String){
+        var annotation: MKPointAnnotation = MKPointAnnotation()
+        if(pines?[varTitulo] == nil){
+            
+        }
+        else{
+            annotation = pines?[varTitulo] as! MKPointAnnotation
+            miMapa?.removeAnnotation(annotation)
+        }
+        annotation.coordinate = coordenada
+        annotation.title = varTitulo
+        pines?[varTitulo] = annotation
+        miMapa?.addAnnotation(annotation)
+    }
     
+    func LocalizacionActualizada(coordenada:CLLocationCoordinate2D){
+        centralizarEnPosicion(coordenada: coordenada)
+    }
+    
+    func centralizarEnPosicion(coordenada:CLLocationCoordinate2D){
+        //let region:MKCoordinateRegion = MKCoordinateRegion(center:coordenada, span:MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        //miMapa?.setRegion(region, animated: true)
+    }
+    func mapView(_mapView: MKMapView, didUpdate userLocation: MKUserLocation){
+        centralizarEnPosicion(coordenada: userLocation.coordinate)
+    }
+    
+    
+    
+    func agregarpin(titulo:String, latitude lat:Double, longitude long:Double){
+        let miPin:MKPointAnnotation = MKPointAnnotation()
+        
+      
+        miPin.coordinate.longitude = long
+        miPin.coordinate.latitude = lat
+        miPin.title = titulo
+        miMapa?.addAnnotation(miPin)
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //print(locations[0])
+        self.nuevaregionmapa(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
+    }
+    func nuevaregionmapa(latitude lat: Double,longitude long:Double){
+        let miSpan:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.01,longitudeDelta: 0.01)
+        let puntoCentro:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude : lat,longitude: long)
+        let miRegion:MKCoordinateRegion = MKCoordinateRegion(center: puntoCentro, span :miSpan)
+        miMapa?.setRegion(miRegion, animated: true)
+    }
 
     /*
     // MARK: - Navigation
