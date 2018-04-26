@@ -11,13 +11,13 @@ import Firebase
 import FirebaseDatabase
 
 class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   /*func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        /*let cell:MiCelda1 =
+       /* let cell:MiCelda1 =
             tableView.dequeueReusableCell(withReuseIdentifier: "IDTable", for: indexPath) as! MiCelda1
         cell.lblNombre?.text =
             DataHolder.sharedInstance.arCoches[indexPath.row].sNombre
@@ -30,7 +30,7 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         
-        let cell:MiCelda1 = tableView.dequeueReusableCell(withIdentifier: "miTabla1") as! MiCelda1
+        /*let cell:MiCelda1 = tableView.dequeueReusableCell(withIdentifier: "miTabla1") as! MiCelda1
        
         if indexPath.row == 0 {
             cell.lblNombre?.text="Gloria"
@@ -49,14 +49,16 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.lblNombre?.text="María"
             cell.imgFoto?.image=#imageLiteral(resourceName: "IMG_9110")
             
-        }
-        return cell
-    }
+        }*/
+       // return cell
+    }*/
     
 
     @IBOutlet var tabla1:UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         //print("************* ",DataHolder.sharedInstance.firestoreDB)
        /* DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
             

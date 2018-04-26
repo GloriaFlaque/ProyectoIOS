@@ -33,4 +33,37 @@ class DataHolder: NSObject {
     func initLocationAdmin(){
         locationAdmin=LocationAdmin()
     }
+    func DescargarCoche(delegate:DataHolderDelegate) {
+        
+        self.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+                
+            }
+            else{
+                //print("]]]]]]]pppppppppppppppp")
+                DataHolder.sharedInstance.arCoches=[]
+                
+                for document in querySnapshot!.documents {
+                    
+                    let coche:Coche = Coche()
+                    coche.sid=document.documentID
+                    coche.setMap(valores: document.data())
+                    DataHolder.sharedInstance.arCoches.append(coche)
+                    //self.arCoches.append(coche)
+                   // print("\(document.documentID) => \(document.data())")
+                }
+                print("--------- >>>",DataHolder.sharedInstance.arCoches.count)
+                delegate.DHDDescargaCiudadesCompleta!(blFin: true)
+              //  self.Collection1?.reloadData()
+               
+            }
+        }
+        
+    }
+}
+
+@objc protocol DataHolderDelegate{
+    @objc optional func DHDDescargaCiudadesCompleta(blFin:Bool)
 }

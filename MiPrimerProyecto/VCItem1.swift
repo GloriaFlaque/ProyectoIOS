@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class VCItem1: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class VCItem1: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource,DataHolderDelegate {
     
  
     
@@ -20,8 +20,9 @@ class VCItem1: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataHolder.sharedInstance.DescargarCoche(delegate: self)
         //print("************* ",DataHolder.sharedInstance.firestoreDB)
-            DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
+           /* DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
                 
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -60,14 +61,21 @@ class VCItem1: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                // self.Collection1?.reloadData()
                 
                 
-            }
+            }*/
         
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
+    }
+    
+    func DHDDescargaCiudadesCompleta(blFin: Bool) {
+        if blFin{
+            self.Collection1?.reloadData()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
