@@ -65,6 +65,13 @@ class VCMap: UIViewController, CLLocationManagerDelegate, LocationAdminDelegate 
         
         // Dispose of any resources that can be recreated.
     }
+    
+   /* func DHDDescargaCiudadesCompleta(blFin: Bool) {
+        if blFin{
+            self.
+        }
+    }*/
+    
     func agregarPin(coordenada:CLLocationCoordinate2D, titulo varTitulo:String){
         var annotation: MKPointAnnotation = MKPointAnnotation()
         if(pines?[varTitulo] == nil){

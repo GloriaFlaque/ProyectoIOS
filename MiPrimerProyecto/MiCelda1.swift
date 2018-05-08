@@ -9,20 +9,20 @@
 import UIKit
 
 class MiCelda1: UITableViewCell {
- @IBOutlet var lblNombre:UILabel?
+    @IBOutlet var lblNombre:UILabel?
     @IBOutlet var imgFoto:UIImageView?
      var imagenDescargada:UIImage?
     //var imagenDescargada:UIImage?
-    override func awakeFromNib() {
+    /*override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
+    }*/
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+   /* override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
+    }*/
     func mostrarImagen(uri:String) {
         self.imgFoto?.image = nil
         // if imagenDescargada == nil {
@@ -30,6 +30,8 @@ class MiCelda1: UITableViewCell {
         
         // Create a reference to the file you want to download
         let gsReference = DataHolder.sharedInstance.firStorage?.reference(forURL: uri)
+       
+        
         
         
         // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
@@ -67,5 +69,6 @@ class MiCelda1: UITableViewCell {
 
     //}
     }
-   
+    
+
 }

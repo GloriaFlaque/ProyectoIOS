@@ -10,9 +10,19 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   /*func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+
+
+
+
+class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource, DataHolderDelegate {
+    
+    @IBOutlet var Tabla:UITableView?
+    
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return 4
+   return DataHolder.sharedInstance.arCoches.count
+    
+    
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -22,12 +32,34 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.lblNombre?.text =
             DataHolder.sharedInstance.arCoches[indexPath.row].sNombre
         cell.mostrarImagen(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)*/
+        let cell:MiCelda1 =
+            tableView.dequeueReusableCell(withIdentifier: "miTabla1", for: indexPath) as! MiCelda1
+        cell.lblNombre?.text =
+            DataHolder.sharedInstance.arCoches[indexPath.row].sNombre
+        cell.mostrarImagen(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)
+        return cell
         
         
         
+
         
         
         
+        /* DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").getDocuments() { (querySnapshot, err) in
+         if let err = err {
+         print("Error getting documents: \(err)")
+         } else {
+         for document in querySnapshot!.documents {
+         let Perfiles:Coche = Coche()
+         Coche.sid=document.documentID
+         Coche.setMap(valores:document.data())
+         self.arCoches.append(coche)
+         print("\(document.documentID) => \(document.data())")
+         }
+         print("------>>>>", self.arCoches.count)
+         }
+         self.tabla1?.reloadData()
+         }*/
         
         
         /*let cell:MiCelda1 = tableView.dequeueReusableCell(withIdentifier: "miTabla1") as! MiCelda1
@@ -49,16 +81,27 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource {
             cell.lblNombre?.text="María"
             cell.imgFoto?.image=#imageLiteral(resourceName: "IMG_9110")
             
-        }*/
-       // return cell
-    }*/
+        }
+        return cell*/
+    }
     
 
     @IBOutlet var tabla1:UITableView?
+    func refreshUI() {
+        DispatchQueue.main.async {
+            self.tabla1?.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        //print("Hola")
+        DataHolder.sharedInstance.CochesTablas(delegate: self)
+        //print("fgfgb")
+    }
+       
+      
+       // tabla1?.delegate=self
+       // tabla1?.dataSource=self
         //print("************* ",DataHolder.sharedInstance.firestoreDB)
        /* DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
             
@@ -110,7 +153,12 @@ func refreshUI() {
     }
     */
         
+        
+    func DHDDescargaCochesCompleta(blFin: Bool) {
+        if blFin{
+            self.refreshUI()
         }
+    }
 
 }
 

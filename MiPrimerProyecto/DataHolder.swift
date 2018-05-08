@@ -16,6 +16,7 @@ class DataHolder: NSObject {
     static let sharedInstance:DataHolder = DataHolder()
     //var sNick:String = " "
     var arCoches:[Coche] = []
+    var HMIMG:[String:UIImage]=[:]
     var numeroCeldasColeccion:UInt=20;
     var locationAdmin:LocationAdmin?
     var firDataBaseRef: DatabaseReference!
@@ -42,7 +43,6 @@ class DataHolder: NSObject {
                 
             }
             else{
-                //print("]]]]]]]pppppppppppppppp")
                 DataHolder.sharedInstance.arCoches=[]
                 
                 for document in querySnapshot!.documents {
@@ -62,8 +62,43 @@ class DataHolder: NSObject {
         }
         
     }
+    
+    
+    
+    func CochesTablas(delegate:DataHolderDelegate) {
+        var blfin:Bool = true
+        self.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
+        
+            if let err = err {
+                print("Error getting documents: \(err)")
+                blfin = false
+            }
+            else{
+                DataHolder.sharedInstance.arCoches=[]
+                
+                for document in querySnapshot!.documents {
+                    
+                    let coche:Coche = Coche()
+                    coche.sid=document.documentID
+                    coche.setMap(valores: document.data())
+                    DataHolder.sharedInstance.arCoches.append(coche)
+                    //self.arCoches.append(coche)
+                    // print("\(document.documentID) => \(document.data())")
+                }
+                print("--------- >>>",DataHolder.sharedInstance.arCoches.count)
+                blfin=true
+                delegate.DHDDescargaCochesCompleta!(blFin: blfin)
+                //  self.Collection1?.reloadData()
+                
+            }
+        }
+    }
 }
 
 @objc protocol DataHolderDelegate{
     @objc optional func DHDDescargaCiudadesCompleta(blFin:Bool)
+    @objc optional func DHDDescargaCochesCompleta(blFin:Bool)
+    
+    
+    
 }

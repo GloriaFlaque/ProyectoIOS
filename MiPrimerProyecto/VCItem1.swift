@@ -87,7 +87,7 @@ class VCItem1: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             collectionView.dequeueReusableCell(withReuseIdentifier: "IDCeldaCol", for: indexPath) as! CVCGatos
         celda.lblNombre?.text =
             DataHolder.sharedInstance.arCoches[indexPath.row].sNombre
-        celda.mostrarImagen(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)
+        celda.mostrarimagen2(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)
         
         
         
