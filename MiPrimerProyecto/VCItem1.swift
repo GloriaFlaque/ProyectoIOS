@@ -16,8 +16,6 @@ class VCItem1: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     @IBOutlet var Collection1:UICollectionView?
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         DataHolder.sharedInstance.DescargarCoche(delegate: self)
@@ -88,8 +86,6 @@ class VCItem1: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         celda.lblNombre?.text =
             DataHolder.sharedInstance.arCoches[indexPath.row].sNombre
         celda.mostrarimagen2(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)
-        
-        
         
         
         

@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import FirebaseDatabase
 
-class VCMap: UIViewController, CLLocationManagerDelegate, LocationAdminDelegate {
+class VCMap: UIViewController, CLLocationManagerDelegate,  LocationAdminDelegate, DataHolderDelegate {
     @IBOutlet var miMapa: MKMapView?
     
     var pines:[String:MKAnnotation]? = [:]
@@ -18,12 +18,30 @@ class VCMap: UIViewController, CLLocationManagerDelegate, LocationAdminDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataHolder.sharedInstance.DescargarCoche(delegate: self)
         miMapa?.showsUserLocation = true
         
         
-       /*DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (snapshot, err)
+      /*  DataHolder.sharedInstance.firDataBaseRef.child("coche").observe(DataEventType.value, with: { (snapshot)
             in
             let arTemp=snapshot.value as? Array<AnyObject>
+            DataHolder.sharedInstance.arCoches=Array<Coche>()
+            for co in arTemp! as [AnyObject] {
+                let cochei=Coche()
+                DataHolder.sharedInstance.arCoches.append(cochei)
+                var coordTemp:CLLocationCoordinate2D = CLLocationCoordinate2D()
+                coordTemp.latitude = cochei.dLat!
+                coordTemp.longitude = cochei.dLon!
+                self.agregarPin(coordenada: coordTemp, titulo: cochei.sNombre!)
+            }
+        })*/
+        
+        
+        
+      /* DataHolder.sharedInstance.firestoreDB?.collection("coche").getDocuments() { (snapshot, err)
+            in
+            //let arTemp = snapshot.value as? Array<AnyObject>
+        
             DataHolder.sharedInstance.arCoches=Array<Coche>()
             
             for co in arTemp! as [AnyObject] {
@@ -40,7 +58,7 @@ class VCMap: UIViewController, CLLocationManagerDelegate, LocationAdminDelegate 
         
         //DataHolder.sharedInstance.locationAdmin?.delegate=self
         
-       var coordTemp:CLLocationCoordinate2D = CLLocationCoordinate2D()
+      /* var coordTemp:CLLocationCoordinate2D = CLLocationCoordinate2D()
         coordTemp.latitude = 40.4165
         coordTemp.longitude = -4.702
         agregarPin(coordenada: coordTemp, titulo: "PIN1")
@@ -48,11 +66,11 @@ class VCMap: UIViewController, CLLocationManagerDelegate, LocationAdminDelegate 
         var coordTemp2:CLLocationCoordinate2D = CLLocationCoordinate2D()
         coordTemp2.latitude = 47.4165
         coordTemp2.longitude = -8.702
-        agregarPin(coordenada: coordTemp, titulo: "PIN2")
+        agregarPin(coordenada: coordTemp, titulo: "PIN2")*/
         
         
         
-        self.agregarpin(titulo: "HOLA", latitude: 42, longitude: -3)
+       /* self.agregarpin(titulo: "HOLA", latitude: 42, longitude: -3)*/
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.startUpdatingLocation()
@@ -99,15 +117,30 @@ class VCMap: UIViewController, CLLocationManagerDelegate, LocationAdminDelegate 
         centralizarEnPosicion(coordenada: userLocation.coordinate)
     }
     
+    func DHDDescargaCiudadesCompleta(blFin: Bool) {
+        if blFin{
+            for co in DataHolder.sharedInstance.arCoches {
+                self.agregarpin(titulo: co.sNombre!, latitude: co.dLat!, longitude: co.dLon!)
+            }
+        }
+    }
     
     
     func agregarpin(titulo:String, latitude lat:Double, longitude long:Double){
-        let miPin:MKPointAnnotation = MKPointAnnotation()
+        var miPin:MKPointAnnotation = MKPointAnnotation()
         
-      
+        if (pines?[titulo] == nil) {
+            
+        }
+        else{
+            miPin = pines?[titulo] as! MKPointAnnotation
+            miMapa?.removeAnnotation(miPin)
+        }
+      //print(long,"       fdfg       ",lat)
         miPin.coordinate.longitude = long
         miPin.coordinate.latitude = lat
         miPin.title = titulo
+        pines?[titulo] = miPin
         miMapa?.addAnnotation(miPin)
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

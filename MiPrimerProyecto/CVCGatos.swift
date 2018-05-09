@@ -52,6 +52,7 @@ class CVCGatos: UICollectionViewCell {
                         // let image = UIImage(data: data!)
                         self.imagenDescargada = UIImage(data: data!)
                         self.imggato?.image = self.imagenDescargada
+                        DataHolder.sharedInstance.HMIMG[uri] = self.imagenDescargada
                     }
                 }
                 

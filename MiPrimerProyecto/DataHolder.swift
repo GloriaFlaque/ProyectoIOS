@@ -64,7 +64,7 @@ class DataHolder: NSObject {
     }
     
     
-    
+    /*
     func CochesTablas(delegate:DataHolderDelegate) {
         var blfin:Bool = true
         self.firestoreDB?.collection("coche").getDocuments() { (querySnapshot, err) in
@@ -93,11 +93,59 @@ class DataHolder: NSObject {
             }
         }
     }
+    */
+    func Registrarse(delegate:DataHolderDelegate, sEmail:String, sPassword:String) {
+        var blfin:Bool = true
+        //print(sEmail, "    fdgdfg    ", sPassword, "    dfgdf   ")
+        Auth.auth().createUser(withEmail: (sEmail), password:
+        (sPassword)){ (user, error) in
+            if user != nil{
+                print("TE REGISTRASTES")
+                //self.perform(shouldPerformSegue(withIdentifier: "", sender: self))
+                delegate.DHDDRegistro!(blFin: true)
+                self.firestoreDB?.collection("Perfiles").document((user?.uid)!).setData(DataHolder.sharedInstance.miPerfil.getMap());
+            }
+            else {
+                print(error!)
+                delegate.DHDDRegistro!(blFin: false)
+            }
+        }
+        print("HOLA!")
+    }
+    
+    func Login(delegate:DataHolderDelegate, sEmail:String, sPassword:String) {
+         var blfin:Bool = true
+        print(sEmail, "    fdgdfg    ", sPassword, "    dfgdf   ")
+        Auth.auth().signIn(withEmail: (sEmail), password: (sPassword)) {
+            (user, error) in
+            if user != nil{
+                let ruta =
+                    DataHolder.sharedInstance.firestoreDB?.collection("Perfiles").document((user?.uid)!)
+                ruta?.getDocument { (document, error) in
+                    if document != nil{
+                        self.miPerfil.setMap(valores: (document?.data()!)!)
+                        print(document?.data())
+                        delegate.DHDDLogin!(blFin: true)
+                    }
+                    
+                }
+                
+            }
+            else{
+                print("No se ha logueado")
+                print(error!)
+                delegate.DHDDLogin!(blFin: false)
+            }
+        }
+    }
+    
 }
 
 @objc protocol DataHolderDelegate{
     @objc optional func DHDDescargaCiudadesCompleta(blFin:Bool)
-    @objc optional func DHDDescargaCochesCompleta(blFin:Bool)
+    //@objc optional func DHDDescargaCochesCompleta(blFin:Bool)
+    @objc optional func DHDDRegistro(blFin:Bool)
+    @objc optional func DHDDLogin(blFin:Bool)
     
     
     

@@ -30,7 +30,6 @@ class Coche: NSObject {
         sNombre=valores["Nombre"] as? String
         sMarca=valores["Marca"] as? String
         iFabricado=valores["Fabricado"] as? Int
-    
     }*/
     func setMap(valores:[String:Any])  {
         sNombre=valores[IDNombre] as? String

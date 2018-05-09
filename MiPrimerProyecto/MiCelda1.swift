@@ -23,7 +23,7 @@ class MiCelda1: UITableViewCell {
 
         // Configure the view for the selected state
     }*/
-    func mostrarImagen(uri:String) {
+    /*func mostrarImagen(uri:String) {
         self.imgFoto?.image = nil
         // if imagenDescargada == nil {
         
@@ -43,6 +43,34 @@ class MiCelda1: UITableViewCell {
                 // let image = UIImage(data: data!)
                 self.imagenDescargada = UIImage(data: data!)
                 self.imgFoto?.image = self.imagenDescargada
+            }
+        }*/
+        
+        
+        
+        
+        func mostrarimagen2(uri:String) {
+            let IMGDES = DataHolder.sharedInstance.HMIMG[uri]
+            if(IMGDES != nil) {
+                imgFoto?.image = IMGDES
+            }
+            else{
+                let gsReference = DataHolder.sharedInstance.firStorage?.reference(forURL: uri)
+                
+                
+                // Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+                gsReference?.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                    if error != nil {
+                        // Uh-oh, an error occurred!
+                    } else {
+                        // Data for "images/island.jpg" is returned
+                        // let image = UIImage(data: data!)
+                        self.imagenDescargada = UIImage(data: data!)
+                        self.imgFoto?.image = self.imagenDescargada
+                        DataHolder.sharedInstance.HMIMG[uri] = self.imagenDescargada
+                    }
+                }
+                
             }
         }
         
@@ -71,4 +99,4 @@ class MiCelda1: UITableViewCell {
     }
     
 
-}
+

@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class VCRegister: UIViewController {
+class VCRegister: UIViewController, DataHolderDelegate {
     @IBOutlet var txtUser:UITextField?
     @IBOutlet var txtEmail:UITextField?
     @IBOutlet var txtPass:UITextField?
@@ -19,6 +19,7 @@ class VCRegister: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
        
 
         // Do any additional setup after loading the view.
@@ -41,14 +42,23 @@ class VCRegister: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func DHDDRegistro(blFin: Bool) {
+        if blFin{
+            self.performSegue(withIdentifier: "cc", sender: self)
+        }
+    }
     @IBAction func clickRegistrar(){
         DataHolder.sharedInstance.miPerfil.nombre = "Gloria"
         DataHolder.sharedInstance.miPerfil.sApellidos = "Flaqué"
         DataHolder.sharedInstance.miPerfil.iFecha = 1999
         DataHolder.sharedInstance.miPerfil.altura = 23
-
         
-        Auth.auth().createUser(withEmail: (txtEmail?.text)!, password:
+        DataHolder.sharedInstance.miPerfil.altura = 180
+        
+        DataHolder.sharedInstance.Registrarse(delegate: self, sEmail: (txtEmail?.text)!, sPassword: (txtPass?.text)!)
+       
+        
+       /*Auth.auth().createUser(withEmail: (txtEmail?.text)!, password:
         (txtPass?.text)!){ (user, error) in
             if user != nil{
                 print("TE REGISTRASTES")
@@ -60,8 +70,8 @@ class VCRegister: UIViewController {
             else {
                 print(error!)
             }
-        }
-        print("HOLA!")
+        }*/
+        //print("HOLA!")
     }
 
 }

@@ -36,7 +36,7 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource, Dat
             tableView.dequeueReusableCell(withIdentifier: "miTabla1", for: indexPath) as! MiCelda1
         cell.lblNombre?.text =
             DataHolder.sharedInstance.arCoches[indexPath.row].sNombre
-        cell.mostrarImagen(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)
+        cell.mostrarimagen2(uri: DataHolder.sharedInstance.arCoches[indexPath.row].sUrl_image!)
         return cell
         
         
@@ -95,7 +95,7 @@ class VCItem2: UIViewController, UITableViewDelegate, UITableViewDataSource, Dat
     override func viewDidLoad() {
         super.viewDidLoad()
         //print("Hola")
-        DataHolder.sharedInstance.CochesTablas(delegate: self)
+        DataHolder.sharedInstance.DescargarCoche(delegate: self)
         //print("fgfgb")
     }
        
@@ -154,7 +154,7 @@ func refreshUI() {
     */
         
         
-    func DHDDescargaCochesCompleta(blFin: Bool) {
+    func DHDDescargaCiudadesCompleta(blFin: Bool) {
         if blFin{
             self.refreshUI()
         }

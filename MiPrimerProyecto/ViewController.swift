@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, DataHolderDelegate {
     @IBOutlet var lblPrueba:UILabel?
     @IBOutlet var txtUser:UITextField?
     @IBOutlet var txtPass:UITextField?
@@ -42,12 +42,20 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func DHDDLogin(blFin: Bool) {
+        if blFin{
+           self.performSegue(withIdentifier: "dd", sender: self)
+        }
+    }
+    
+    
     @IBAction func eventoClickLogin()
     {
-        
+        DataHolder.sharedInstance.Login(delegate: self, sEmail: (txtUser?.text)!, sPassword: (txtPass?.text)!)
         //txtVConsola?.text=String(format:"Hola Mundo USUARIO: %@ PASSWORD: %@", (txtUser?.text)!, (txtPass?.text)!)
         print("HEY QUE TAL!!!"+(txtUser?.text)!)
-        Auth.auth().signIn(withEmail: (txtUser?.text)!, password: (txtPass?.text)!) {
+        /*Auth.auth().signIn(withEmail: (txtUser?.text)!, password: (txtPass?.text)!) {
             (user, error) in
             if user != nil{
                 let ruta =
@@ -66,7 +74,7 @@ class ViewController: UIViewController {
                 print("No se ha logueado")
                 print(error!)
             }
-        }
+        }*/
         //if txtUser?.text == "Gloria"{
         
        // }
