@@ -15,6 +15,7 @@
 		57D3EF642087B4F000760416 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D3EF632087B4F000760416 /* MapKit.framework */; };
 		57D3EF662088957E00760416 /* VCMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D3EF652088957E00760416 /* VCMap.swift */; };
 		57D3EF682088B66700760416 /* Coche.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D3EF672088B66700760416 /* Coche.swift */; };
+		57D6275F20A4683B005A6CD1 /* VCSelecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6275E20A4683B005A6CD1 /* VCSelecting.swift */; };
 		57FDBE142063B7F300989763 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE132063B7F300989763 /* AppDelegate.swift */; };
 		57FDBE162063B7F300989763 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FDBE152063B7F300989763 /* ViewController.swift */; };
 		57FDBE192063B7F300989763 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57FDBE172063B7F300989763 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		57D3EF632087B4F000760416 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		57D3EF652088957E00760416 /* VCMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCMap.swift; sourceTree = "<group>"; };
 		57D3EF672088B66700760416 /* Coche.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coche.swift; sourceTree = "<group>"; };
+		57D6275E20A4683B005A6CD1 /* VCSelecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCSelecting.swift; sourceTree = "<group>"; };
 		57FDBE102063B7F300989763 /* MiPrimerProyecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiPrimerProyecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FDBE132063B7F300989763 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57FDBE152063B7F300989763 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				57D3EF5F207F771A00760416 /* Perfil.swift */,
 				57D3EF612087A52600760416 /* LocationAdmin.swift */,
 				57D3EF672088B66700760416 /* Coche.swift */,
+				57D6275E20A4683B005A6CD1 /* VCSelecting.swift */,
 			);
 			path = MiPrimerProyecto;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				57FDBE292073ACDE00989763 /* VCRegister.swift in Sources */,
 				57FDBE2B2076288B00989763 /* VCItem1.swift in Sources */,
 				57D3EF622087A52600760416 /* LocationAdmin.swift in Sources */,
+				57D6275F20A4683B005A6CD1 /* VCSelecting.swift in Sources */,
 				57D3EF662088957E00760416 /* VCMap.swift in Sources */,
 				57D3EF682088B66700760416 /* Coche.swift in Sources */,
 				57FDBE35207652CB00989763 /* CVCGatos.swift in Sources */,
@@ -416,6 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJW7MH6X2M;
 				INFOPLIST_FILE = MiPrimerProyecto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gloria.MiPrimerProyecto;
@@ -431,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UJW7MH6X2M;
 				INFOPLIST_FILE = MiPrimerProyecto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gloria.MiPrimerProyecto;

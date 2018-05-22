@@ -23,6 +23,7 @@ class DataHolder: NSObject {
     //var arCoches:Array<Coche>?
     var firestoreDB:Firestore?
     var firStorage:Storage?
+    var firStorageRef: StorageReference?
     
     var miPerfil:Perfil = Perfil()
 
@@ -30,6 +31,8 @@ class DataHolder: NSObject {
         FirebaseApp.configure()
         firestoreDB = Firestore.firestore()
         firStorage = Storage.storage()
+        firDataBaseRef = Database.database().reference().child("Swift")
+        firStorageRef = firStorage?.reference()
     }
     func initLocationAdmin(){
         locationAdmin=LocationAdmin()
